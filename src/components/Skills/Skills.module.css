@@ -1,0 +1,233 @@
+.skills {
+  position: relative;
+}
+
+.skills::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100px;
+  background: var(--gradient-fade-top);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.skillsFadeBottom {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100px;
+  background: var(--gradient-fade-bottom);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.skillsHeader {
+  text-align: center;
+  margin-bottom: var(--space-3xl);
+}
+
+.skillsLabel {
+  display: inline-block;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--accent-primary);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: var(--space-sm);
+}
+
+.skillsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--space-lg);
+}
+
+.skillCategory {
+  background: var(--bg-card);
+  border: 1px solid var(--border-primary);
+  border-radius: var(--radius-lg);
+  padding: var(--space-xl);
+  transition: all var(--transition-base);
+  position: relative;
+  overflow: hidden;
+}
+
+.skillCategory::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--accent-gradient);
+  transform: scaleX(0);
+  transition: transform var(--transition-base);
+  transform-origin: left;
+}
+
+.skillCategory:hover {
+  border-color: var(--border-accent);
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-card-hover);
+}
+
+.skillCategory:hover::before {
+  transform: scaleX(1);
+}
+
+.categoryHeader {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  margin-bottom: var(--space-lg);
+}
+
+.categoryIcon {
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
+  background: var(--surface-glass);
+  border: 1px solid var(--border-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--accent-primary);
+  flex-shrink: 0;
+  transition: all 0.3s ease;
+  box-shadow: inset 0 2px 4px var(--border-primary);
+}
+
+.categoryIcon svg {
+  display: block;
+  width: 24px;
+  height: 24px;
+  filter: drop-shadow(0 0 8px rgba(129, 140, 248, 0.2));
+}
+
+.skillCategory:hover .categoryIcon {
+  background: rgba(99, 102, 241, 0.1);
+  border-color: rgba(99, 102, 241, 0.3);
+  transform: scale(1.05);
+  color: var(--accent-primary);
+}
+
+.categoryTitle {
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+.categoryDescription {
+  font-size: 0.8rem;
+  color: var(--text-tertiary);
+}
+
+.skillsList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+}
+
+.skillTag {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+  padding: var(--space-sm) var(--space-md);
+  background: var(--surface-glass);
+  border: 1px solid var(--border-primary);
+  border-radius: var(--radius-full);
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  transition: all var(--transition-fast);
+}
+
+.skillTag:hover {
+  border-color: var(--accent-primary);
+  color: var(--accent-primary);
+  background: var(--surface-glass-hover);
+  transform: translateY(-2px);
+}
+
+.skillDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent-primary);
+}
+
+/* Tech Logos row */
+.techLogos {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-xl);
+  margin-top: var(--space-3xl);
+  flex-wrap: wrap;
+  opacity: 0.4;
+  transition: opacity var(--transition-base);
+}
+
+.techLogos:hover {
+  opacity: 0.7;
+}
+
+.techLogo {
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  filter: grayscale(100%);
+  transition: filter var(--transition-base);
+}
+
+.techLogo:hover {
+  filter: grayscale(0%);
+}
+
+@media (max-width: 768px) {
+  .skillsGrid {
+    grid-template-columns: 1fr;
+    gap: var(--space-md);
+  }
+  
+  .skillCategory {
+    padding: var(--space-lg);
+  }
+}
+
+@media (max-width: 480px) {
+  .skillCategory {
+    padding: var(--space-md);
+  }
+  
+  .categoryIcon {
+    width: 40px;
+    height: 40px;
+    font-size: 1.1rem;
+  }
+  
+  .categoryTitle {
+    font-size: 1rem;
+  }
+  
+  .skillTag {
+    font-size: 0.75rem;
+    padding: var(--space-xs) var(--space-sm);
+  }
+  
+  .techLogos {
+    gap: var(--space-md);
+    margin-top: var(--space-2xl);
+  }
+  
+  .techLogo {
+    font-size: 1.5rem;
+    width: 36px;
+    height: 36px;
+  }
+}
