@@ -1,0 +1,15 @@
+[
+  {
+    "id": 1,
+    "title": "Gerador de Senhas",
+    "description": "Um aplicativo simples capaz de gerar senhas seguras customizáveis com opção de cópia.",
+    "type": "Frontend & Mobile",
+    "category": ["frontend", "mobile"],
+    "tech": ["React Native", "Expo", "TypeScript"],
+    "icon": "🔐",
+    "github": "https://github.com/KaikAp/Gerador-de-Senhas-com-React-Native",
+    "live": "https://gerador-de-senhas-com-react-native-ten.vercel.app",
+    "status": "completed",
+    "gradient": "linear-gradient(135deg, #3b82f6, #8b5cf6)"
+  }
+]

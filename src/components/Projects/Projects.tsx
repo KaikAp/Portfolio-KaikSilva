@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { useInView } from '@/hooks/useInView';
 import styles from './Projects.module.css';
+import projectsData from '@/data/projects.json';
 
 type ProjectCategory = 'all' | 'frontend' | 'fullstack' | 'mobile';
 
@@ -11,7 +12,7 @@ interface Project {
   title: string;
   description: string;
   type: string;
-  category: ProjectCategory;
+  category: ProjectCategory[];
   tech: string[];
   icon: string;
   github: string;
@@ -20,22 +21,8 @@ interface Project {
   gradient: string;
 }
 
-// Projetos removidos a pedido do usuário. Aguardando novos projetos.
-const projects: Project[] = [
-  {
-    id: 1,
-    title: 'Gerador de Senhas',
-    description: 'Um aplicativo simples capaz de gerar senhas seguras customizáveis com opção de cópia.',
-    type: 'Frontend',
-    category: 'frontend',
-    tech: ['React Native', 'Expo', 'TypeScript'],
-    icon: '🔐',
-    github: 'https://github.com/KaikAp/Gerador-de-Senhas-com-React-Native',
-    live: 'https://gerador-de-senhas-com-react-native-ten.vercel.app',
-    status: 'completed',
-    gradient: 'linear-gradient(135deg, #3b82f6, #8b5cf6)',
-  },
-];
+// Dados dos projetos vêm de um arquivo JSON externo
+const projects: Project[] = projectsData as Project[];
 
 const filters: { label: string; value: ProjectCategory }[] = [
   { label: 'Todos', value: 'all' },
@@ -49,7 +36,7 @@ export default function Projects() {
   const { ref, isInView } = useInView({ threshold: 0.1 });
 
   const filteredProjects = projects.filter(
-    (project) => activeFilter === 'all' || project.category === activeFilter
+    (project) => activeFilter === 'all' || project.category.includes(activeFilter)
   );
 
   return (
