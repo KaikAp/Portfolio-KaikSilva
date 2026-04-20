@@ -82,7 +82,7 @@
 
 .projectsGrid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
   gap: var(--space-xl);
 }
 
@@ -149,6 +149,7 @@
   gap: var(--space-md);
   opacity: 0;
   transition: opacity var(--transition-base);
+  z-index: 10;
 }
 
 .projectCard:hover .projectOverlay {
@@ -315,8 +316,15 @@
 }
 
 @keyframes float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-10px); }
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
 }
 
 @media (max-width: 768px) {
